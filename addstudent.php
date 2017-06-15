@@ -2,7 +2,7 @@
 
 include 'navbar.php';
 
-$connection = mysqli_connect("localhost", "root", "root", "assignment") or die("Please, check the server connection!");
+$connection = mysqli_connect("localhost", "root", "", "assignment") or die("Please, check the server connection!");
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -24,7 +24,7 @@ if($result) {
     </div>
 
 <?php
-    header ("Location: index.php");
+    // header ("Location: index.php");
 } else {
     echo "Some error occurred while creating your account! Please try again!";
 }

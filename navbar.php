@@ -75,7 +75,7 @@
                     echo "<li><a href='profile.php'>Welcome " . $_SESSION['name'] . "</a></li>";
                     echo "<li><a href=\"logout.php\">Logout</a></li>";
                 } else {
-                    echo "<li><span id="userinfo"><a href='signin.php'>Login</a></li>";
+                    echo "<li><span id=\"userinfo\"><a href='signin.php'>Login</a></li>";
                     echo "<li><a href=\"student-signup.php\">Sign Up</a></span></li>";
                 }
             ?>
