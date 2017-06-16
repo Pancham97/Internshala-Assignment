@@ -1,7 +1,7 @@
 <?php
   $server = "localhost";
   $username = "root";
-  $password = "root";
+  $password = "";
   $db_name = "assignment";
   $connection = mysqli_connect($server, $username, $password, $db_name) or die ("Error in connecting to the server!");
 
@@ -40,6 +40,6 @@
   if(mysqli_query($connection, $insert_query)) {
       echo "Internship added!";
   } else {
-      echo "Error in adding internships!";
+      echo mysqli_error($connection);
   }
 ?>

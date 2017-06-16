@@ -1,4 +1,4 @@
-<?php
+d<?php
     include('navbar.php');
 ?>
 <!DOCTYPE html>
