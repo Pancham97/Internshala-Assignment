@@ -16,7 +16,7 @@
   echo "<th>End Date</th></tr>";
   while($rows = mysqli_fetch_assoc($result)) {
       extract($rows);
-      echo "<tr><td><a href=\"intern_details.php?id=$id\">" . $title . "</a></td>";
+      echo "<tr><td><a href=\"intern_details.php?id=$id&emp_id=$emp_id\">" . $title . "</a></td>";
       echo "<td>" . $org_name . "</td>";
       echo "<td>" . $start_date . "</td>";
       echo "<td>" . $end_date . "</td></tr>";

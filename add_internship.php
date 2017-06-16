@@ -1,4 +1,5 @@
 <?php
+include 'navbar.php';
   $server = "localhost";
   $username = "root";
   $password = "";
@@ -33,7 +34,14 @@
   $description = $_POST['description'];
   $start_date = $_POST['start_date'];
   $end_date = $_POST['end_date'];
-  $insert_query = "INSERT INTO internships (org_name, title, description, start_date, end_date) VALUES ('$org_name', '$title', '$description', '$start_date', '$end_date')";
+
+  $email = $_SESSION['email'];
+  $employer_details = "SELECT * FROM employer WHERE email = '$email'";
+  $result = mysqli_query($connection, $employer_details);
+  $row = mysqli_fetch_assoc($result);
+  extract($row);
+  $emp_id = $id;
+  $insert_query = "INSERT INTO internships (org_name, title, description, start_date, end_date, emp_id) VALUES ('$org_name', '$title', '$description', '$start_date', '$end_date', '$emp_id')";
 
   // mysqli_query($connection, $insert_query);
 

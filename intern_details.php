@@ -5,6 +5,7 @@
     }
     $connection = mysqli_connect("localhost", "root", "", "assignment") or die(mysql_error());
     $internship_id = $_REQUEST['id'];
+    $emp_id = $_REQUEST['emp_id'];
     $query = "SELECT * FROM internships " . "where id like '$internship_id'";
     $results = mysqli_query($connection, $query) or die(mysql_error());
     $row = mysqli_fetch_assoc($results);
@@ -38,7 +39,7 @@
     if($row) {
         echo "Already applied!";
     } else {
-        echo "<form method=\"post\" action=\"apply.php?&id=$internship_id&title=$title\">";
+        echo "<form method=\"post\" action=\"checklogin.php?&id=$internship_id&title=$title&emp_id=$emp_id\">";
         echo "<td colspan=\"2\" style=\"font-family:verdana; font-size: 150%;\">";
         echo "</td></tr><tr><td colspan=\"2\"><input type=\"submit\" name=\"apply\" value=\"Apply\" style=\"font-size: 150%;\"></td>";
         echo "</form>";

@@ -9,8 +9,7 @@
   $emp_table = "CREATE TABLE employer
   (id INT(3) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   org_name VARCHAR(50) NOT NULL,
-  first_name VARCHAR(30),
-  last_name VARCHAR(30),
+  name VARCHAR(30),
   email VARCHAR(30),
   password VARCHAR(50),
   phone INT(10),

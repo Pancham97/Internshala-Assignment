@@ -16,9 +16,12 @@
             }
             $connection = mysqli_connect("localhost", "root", "", "assignment") or die("Please, check your server connection");
             $query = "select email, password, name from students where email like '" .$_POST['email'] . "' and password like (PASSWORD('" . $_POST['password'] . "'))";
-            $result = mysqli_query($connection, $query) or die(mysql_error());
+            
 
-            if(mysqli_num_rows($result) == 1) {
+            $emp_query = "select email, password, name from employer WHERE email like '" . $_POST['email'] . "' and password like (PASSWORD('" . $_POST['password'] . "'))";
+            
+            if(mysqli_num_rows(mysqli_query($connection, $query)) == 1) {
+                $result = mysqli_query($connection, $query) or die(mysql_error());
                 while($row = mysqli_fetch_assoc($result)) {
                     extract($row);
                     echo "Welcome, " . $name . " to an amazing world of Internship!<br>";
@@ -26,7 +29,19 @@
                     $_SESSION['name'] = $row['name'];
                     $_SESSION['email'] = $_POST['email'];
                     $_SESSION['password'] = $_POST['password'];
+                    $_SESSION['id'] = $row['id'];
 
+                }
+            } else if(mysqli_num_rows(mysqli_query($connection, $emp_query)) == 1) {
+                $emp_result = mysqli_query($connection, $emp_query) or die (mysql_error());
+                while($row = mysqli_fetch_assoc($emp_result)) {
+                    extract($row);
+                    echo "Welcome, " . $name . " (employer) to an amazing world of Internship!<br>";
+                    echo "<script language=\"JavaScript\">updateUser('$name');</script>";
+                    $_SESSION['name'] = $row['name'];
+                    $_SESSION['email'] = $_POST['email'];
+                    $_SESSION['password'] = $_POST['password'];
+                    $_SESSION['id'] = $row['id'];
                 }
             } else {
                 ?>
