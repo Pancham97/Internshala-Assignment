@@ -2,7 +2,7 @@
 
 include 'navbar.php';
 
-$connection = mysqli_connect("localhost", "root", "", "assignment") or die("Please, check the server connection!");
+$connection = mysqli_connect("localhost", "root", "root", "assignment") or die("Please, check the server connection!");
 
 $email = $_POST['email'];
 $password = $_POST['password'];

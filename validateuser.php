@@ -14,7 +14,7 @@
             if(session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
-            $connection = mysqli_connect("localhost", "root", "", "assignment") or die("Please, check your server connection");
+            $connection = mysqli_connect("localhost", "root", "root", "assignment") or die("Please, check your server connection");
             $query = "select email, password, name from students where email like '" .$_POST['email'] . "' and password like (PASSWORD('" . $_POST['password'] . "'))";
             $result = mysqli_query($connection, $query) or die(mysql_error());
 
